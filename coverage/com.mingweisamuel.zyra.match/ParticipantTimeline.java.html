@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParticipantTimeline.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">zyra</a> &gt; <a href="index.source.html" class="el_package">com.mingweisamuel.zyra.match</a> &gt; <span class="el_source">ParticipantTimeline.java</span></div><h1>ParticipantTimeline.java</h1><pre class="source lang-java linenums">package com.mingweisamuel.zyra.match;
+
+import com.google.common.base.Objects;
+import java.io.Serializable;
+import java.lang.Double;
+import java.lang.Object;
+import java.lang.Override;
+import java.lang.String;
+import java.util.Map;
+
+/**
+ * ParticipantTimeline.&lt;br&gt;&lt;br&gt;
+ *
+ * This class was automatically generated from the &lt;a href=&quot;http://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.min.json&quot;&gt;Riot API reference&lt;/a&gt;. */
+public class ParticipantTimeline implements Serializable {
+  public final Map&lt;String, Double&gt; creepsPerMinDeltas;
+
+  public final Map&lt;String, Double&gt; csDiffPerMinDeltas;
+
+  public final Map&lt;String, Double&gt; damageTakenDiffPerMinDeltas;
+
+  public final Map&lt;String, Double&gt; damageTakenPerMinDeltas;
+
+  public final Map&lt;String, Double&gt; goldPerMinDeltas;
+
+  public final String lane;
+
+  public final int participantId;
+
+  public final String role;
+
+  public final Map&lt;String, Double&gt; xpDiffPerMinDeltas;
+
+  public final Map&lt;String, Double&gt; xpPerMinDeltas;
+
+  public ParticipantTimeline(final Map&lt;String, Double&gt; creepsPerMinDeltas,
+      final Map&lt;String, Double&gt; csDiffPerMinDeltas,
+      final Map&lt;String, Double&gt; damageTakenDiffPerMinDeltas,
+      final Map&lt;String, Double&gt; damageTakenPerMinDeltas, final Map&lt;String, Double&gt; goldPerMinDeltas,
+      final String lane, final int participantId, final String role,
+<span class="nc" id="L41">      final Map&lt;String, Double&gt; xpDiffPerMinDeltas, final Map&lt;String, Double&gt; xpPerMinDeltas) {</span>
+<span class="nc" id="L42">    this.creepsPerMinDeltas = creepsPerMinDeltas;</span>
+<span class="nc" id="L43">    this.csDiffPerMinDeltas = csDiffPerMinDeltas;</span>
+<span class="nc" id="L44">    this.damageTakenDiffPerMinDeltas = damageTakenDiffPerMinDeltas;</span>
+<span class="nc" id="L45">    this.damageTakenPerMinDeltas = damageTakenPerMinDeltas;</span>
+<span class="nc" id="L46">    this.goldPerMinDeltas = goldPerMinDeltas;</span>
+<span class="nc" id="L47">    this.lane = lane;</span>
+<span class="nc" id="L48">    this.participantId = participantId;</span>
+<span class="nc" id="L49">    this.role = role;</span>
+<span class="nc" id="L50">    this.xpDiffPerMinDeltas = xpDiffPerMinDeltas;</span>
+<span class="nc" id="L51">    this.xpPerMinDeltas = xpPerMinDeltas;</span>
+<span class="nc" id="L52">  }</span>
+
+  @Override
+  public boolean equals(final Object obj) {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">    if (obj == this) return true;</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">    if (!(obj instanceof ParticipantTimeline)) return false;</span>
+<span class="nc" id="L58">    final ParticipantTimeline other = (ParticipantTimeline) obj;</span>
+<span class="nc" id="L59">    return true</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        &amp;&amp; Objects.equal(creepsPerMinDeltas, other.creepsPerMinDeltas)</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        &amp;&amp; Objects.equal(csDiffPerMinDeltas, other.csDiffPerMinDeltas)</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        &amp;&amp; Objects.equal(damageTakenDiffPerMinDeltas, other.damageTakenDiffPerMinDeltas)</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        &amp;&amp; Objects.equal(damageTakenPerMinDeltas, other.damageTakenPerMinDeltas)</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        &amp;&amp; Objects.equal(goldPerMinDeltas, other.goldPerMinDeltas)</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        &amp;&amp; Objects.equal(lane, other.lane)</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        &amp;&amp; Objects.equal(participantId, other.participantId)</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        &amp;&amp; Objects.equal(role, other.role)</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        &amp;&amp; Objects.equal(xpDiffPerMinDeltas, other.xpDiffPerMinDeltas)</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        &amp;&amp; Objects.equal(xpPerMinDeltas, other.xpPerMinDeltas);}</span>
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L73">    return Objects.hashCode(0,</span>
+        creepsPerMinDeltas,
+        csDiffPerMinDeltas,
+        damageTakenDiffPerMinDeltas,
+        damageTakenPerMinDeltas,
+        goldPerMinDeltas,
+        lane,
+<span class="nc" id="L80">        participantId,</span>
+        role,
+        xpDiffPerMinDeltas,
+        xpPerMinDeltas);}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

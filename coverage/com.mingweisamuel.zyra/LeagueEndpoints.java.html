@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LeagueEndpoints.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">zyra</a> &gt; <a href="index.source.html" class="el_package">com.mingweisamuel.zyra</a> &gt; <span class="el_source">LeagueEndpoints.java</span></div><h1>LeagueEndpoints.java</h1><pre class="source lang-java linenums">package com.mingweisamuel.zyra;
+
+import com.google.gson.reflect.TypeToken;
+import com.mingweisamuel.zyra.enums.Region;
+import com.mingweisamuel.zyra.league.LeagueList;
+import com.mingweisamuel.zyra.league.LeaguePosition;
+import java.lang.String;
+import java.lang.SuppressWarnings;
+import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+/**
+ * league-v3 endpoints.&lt;br&gt;
+ * This class is automatically generated and should not be modified directly.
+ */
+@SuppressWarnings({&quot;unused&quot;, &quot;SameParameterValue&quot;, &quot;SpellCheckingInspection&quot;})
+public final class LeagueEndpoints extends Endpoints {
+  LeagueEndpoints(final RiotApi riotApi) {
+<span class="fc" id="L21">    super(riotApi);</span>
+<span class="fc" id="L22">  }</span>
+
+  /**
+   * Get the challenger league for given queue.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getChallengerLeague&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param queue (required) null
+   */
+  public LeagueList getChallengerLeague(final Region region, final String queue) {
+    // This method is automatically generated and should not be modified directly.
+<span class="fc" id="L33">    String url = String.format(&quot;/lol/league/v3/challengerleagues/by-queue/%1$s&quot;, queue);</span>
+<span class="fc" id="L34">    Type type = LeagueList.class;</span>
+<span class="fc" id="L35">    return riotApi.getBasic(&quot;league-v3.getChallengerLeague&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get the challenger league for given queue.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getChallengerLeague&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param queue (required) null
+   */
+  public CompletableFuture&lt;LeagueList&gt; getChallengerLeagueAsync(final Region region,
+      final String queue) {
+    // This method is automatically generated and should not be modified directly.
+<span class="fc" id="L48">    String url = String.format(&quot;/lol/league/v3/challengerleagues/by-queue/%1$s&quot;, queue);</span>
+<span class="fc" id="L49">    Type type = LeagueList.class;</span>
+<span class="fc" id="L50">    return riotApi.getBasicAsync(&quot;league-v3.getChallengerLeague&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get leagues in all queues for a given summoner ID.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getAllLeaguesForSummoner&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param summonerId (required) null
+   */
+  public List&lt;LeagueList&gt; getAllLeaguesForSummoner(final Region region, final long summonerId) {
+    // This method is automatically generated and should not be modified directly.
+<span class="fc" id="L62">    String url = String.format(&quot;/lol/league/v3/leagues/by-summoner/%1$s&quot;, summonerId);</span>
+<span class="fc" id="L63">    Type type = new TypeToken&lt;List&lt;LeagueList&gt;&gt;() {</span>
+<span class="fc" id="L64">    }.getType();</span>
+<span class="fc" id="L65">    return riotApi.getBasic(&quot;league-v3.getAllLeaguesForSummoner&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get leagues in all queues for a given summoner ID.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getAllLeaguesForSummoner&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param summonerId (required) null
+   */
+  public CompletableFuture&lt;List&lt;LeagueList&gt;&gt; getAllLeaguesForSummonerAsync(final Region region,
+      final long summonerId) {
+    // This method is automatically generated and should not be modified directly.
+<span class="fc" id="L78">    String url = String.format(&quot;/lol/league/v3/leagues/by-summoner/%1$s&quot;, summonerId);</span>
+<span class="fc" id="L79">    Type type = new TypeToken&lt;List&lt;LeagueList&gt;&gt;() {</span>
+<span class="fc" id="L80">    }.getType();</span>
+<span class="fc" id="L81">    return riotApi.getBasicAsync(&quot;league-v3.getAllLeaguesForSummoner&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get league with given ID, including inactive entries.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getLeagueById&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param leagueId (required) The UUID of the league.
+   */
+  public LeagueList getLeagueById(final Region region, final String leagueId) {
+    // This method is automatically generated and should not be modified directly.
+<span class="nc" id="L93">    String url = String.format(&quot;/lol/league/v3/leagues/%1$s&quot;, leagueId);</span>
+<span class="nc" id="L94">    Type type = LeagueList.class;</span>
+<span class="nc" id="L95">    return riotApi.getBasic(&quot;league-v3.getLeagueById&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get league with given ID, including inactive entries.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getLeagueById&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param leagueId (required) The UUID of the league.
+   */
+  public CompletableFuture&lt;LeagueList&gt; getLeagueByIdAsync(final Region region,
+      final String leagueId) {
+    // This method is automatically generated and should not be modified directly.
+<span class="nc" id="L108">    String url = String.format(&quot;/lol/league/v3/leagues/%1$s&quot;, leagueId);</span>
+<span class="nc" id="L109">    Type type = LeagueList.class;</span>
+<span class="nc" id="L110">    return riotApi.getBasicAsync(&quot;league-v3.getLeagueById&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get the master league for given queue.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getMasterLeague&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param queue (required) null
+   */
+  public LeagueList getMasterLeague(final Region region, final String queue) {
+    // This method is automatically generated and should not be modified directly.
+<span class="fc" id="L122">    String url = String.format(&quot;/lol/league/v3/masterleagues/by-queue/%1$s&quot;, queue);</span>
+<span class="fc" id="L123">    Type type = LeagueList.class;</span>
+<span class="fc" id="L124">    return riotApi.getBasic(&quot;league-v3.getMasterLeague&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get the master league for given queue.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getMasterLeague&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param queue (required) null
+   */
+  public CompletableFuture&lt;LeagueList&gt; getMasterLeagueAsync(final Region region,
+      final String queue) {
+    // This method is automatically generated and should not be modified directly.
+<span class="fc" id="L137">    String url = String.format(&quot;/lol/league/v3/masterleagues/by-queue/%1$s&quot;, queue);</span>
+<span class="fc" id="L138">    Type type = LeagueList.class;</span>
+<span class="fc" id="L139">    return riotApi.getBasicAsync(&quot;league-v3.getMasterLeague&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get league positions in all queues for a given summoner ID.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getAllLeaguePositionsForSummoner&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param summonerId (required) null
+   */
+  public List&lt;LeaguePosition&gt; getAllLeaguePositionsForSummoner(final Region region,
+      final long summonerId) {
+    // This method is automatically generated and should not be modified directly.
+<span class="nc" id="L152">    String url = String.format(&quot;/lol/league/v3/positions/by-summoner/%1$s&quot;, summonerId);</span>
+<span class="nc" id="L153">    Type type = new TypeToken&lt;List&lt;LeaguePosition&gt;&gt;() {</span>
+<span class="nc" id="L154">    }.getType();</span>
+<span class="nc" id="L155">    return riotApi.getBasic(&quot;league-v3.getAllLeaguePositionsForSummoner&quot;, url, region, type, Collections.emptyList());</span>
+  }
+
+  /**
+   * Get league positions in all queues for a given summoner ID.
+   *
+   * &lt;a href=&quot;https://developer.riotgames.com/api-methods/#league-v3/GET_getAllLeaguePositionsForSummoner&quot;&gt;Link to Portal&lt;/a&gt;&lt;br&gt;
+   * @param region Region to execute against.
+   * @param summonerId (required) null
+   */
+  public CompletableFuture&lt;List&lt;LeaguePosition&gt;&gt; getAllLeaguePositionsForSummonerAsync(final Region region,
+      final long summonerId) {
+    // This method is automatically generated and should not be modified directly.
+<span class="fc" id="L168">    String url = String.format(&quot;/lol/league/v3/positions/by-summoner/%1$s&quot;, summonerId);</span>
+<span class="fc" id="L169">    Type type = new TypeToken&lt;List&lt;LeaguePosition&gt;&gt;() {</span>
+<span class="fc" id="L170">    }.getType();</span>
+<span class="fc" id="L171">    return riotApi.getBasicAsync(&quot;league-v3.getAllLeaguePositionsForSummoner&quot;, url, region, type, Collections.emptyList());</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

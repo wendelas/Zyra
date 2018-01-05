@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RuneStats.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">zyra</a> &gt; <a href="index.source.html" class="el_package">com.mingweisamuel.zyra.lolStaticData</a> &gt; <span class="el_source">RuneStats.java</span></div><h1>RuneStats.java</h1><pre class="source lang-java linenums">package com.mingweisamuel.zyra.lolStaticData;
+
+import com.google.common.base.Objects;
+import java.io.Serializable;
+import java.lang.Object;
+import java.lang.Override;
+
+/**
+ * RuneStats.&lt;br&gt;&lt;br&gt;
+ *
+ * This object contains stats for runes..&lt;br&gt;&lt;br&gt;
+ *
+ * This class was automatically generated from the &lt;a href=&quot;http://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.min.json&quot;&gt;Riot API reference&lt;/a&gt;. */
+public class RuneStats implements Serializable {
+  public final double FlatArmorMod;
+
+  public final double FlatArmorModPerLevel;
+
+  public final double FlatArmorPenetrationMod;
+
+  public final double FlatArmorPenetrationModPerLevel;
+
+  public final double FlatAttackSpeedMod;
+
+  public final double FlatBlockMod;
+
+  public final double FlatCritChanceMod;
+
+  public final double FlatCritChanceModPerLevel;
+
+  public final double FlatCritDamageMod;
+
+  public final double FlatCritDamageModPerLevel;
+
+  public final double FlatDodgeMod;
+
+  public final double FlatDodgeModPerLevel;
+
+  public final double FlatEXPBonus;
+
+  public final double FlatEnergyModPerLevel;
+
+  public final double FlatEnergyPoolMod;
+
+  public final double FlatEnergyRegenMod;
+
+  public final double FlatEnergyRegenModPerLevel;
+
+  public final double FlatGoldPer10Mod;
+
+  public final double FlatHPModPerLevel;
+
+  public final double FlatHPPoolMod;
+
+  public final double FlatHPRegenMod;
+
+  public final double FlatHPRegenModPerLevel;
+
+  public final double FlatMPModPerLevel;
+
+  public final double FlatMPPoolMod;
+
+  public final double FlatMPRegenMod;
+
+  public final double FlatMPRegenModPerLevel;
+
+  public final double FlatMagicDamageMod;
+
+  public final double FlatMagicDamageModPerLevel;
+
+  public final double FlatMagicPenetrationMod;
+
+  public final double FlatMagicPenetrationModPerLevel;
+
+  public final double FlatMovementSpeedMod;
+
+  public final double FlatMovementSpeedModPerLevel;
+
+  public final double FlatPhysicalDamageMod;
+
+  public final double FlatPhysicalDamageModPerLevel;
+
+  public final double FlatSpellBlockMod;
+
+  public final double FlatSpellBlockModPerLevel;
+
+  public final double FlatTimeDeadMod;
+
+  public final double FlatTimeDeadModPerLevel;
+
+  public final double PercentArmorMod;
+
+  public final double PercentArmorPenetrationMod;
+
+  public final double PercentArmorPenetrationModPerLevel;
+
+  public final double PercentAttackSpeedMod;
+
+  public final double PercentAttackSpeedModPerLevel;
+
+  public final double PercentBlockMod;
+
+  public final double PercentCooldownMod;
+
+  public final double PercentCooldownModPerLevel;
+
+  public final double PercentCritChanceMod;
+
+  public final double PercentCritDamageMod;
+
+  public final double PercentDodgeMod;
+
+  public final double PercentEXPBonus;
+
+  public final double PercentHPPoolMod;
+
+  public final double PercentHPRegenMod;
+
+  public final double PercentLifeStealMod;
+
+  public final double PercentMPPoolMod;
+
+  public final double PercentMPRegenMod;
+
+  public final double PercentMagicDamageMod;
+
+  public final double PercentMagicPenetrationMod;
+
+  public final double PercentMagicPenetrationModPerLevel;
+
+  public final double PercentMovementSpeedMod;
+
+  public final double PercentMovementSpeedModPerLevel;
+
+  public final double PercentPhysicalDamageMod;
+
+  public final double PercentSpellBlockMod;
+
+  public final double PercentSpellVampMod;
+
+  public final double PercentTimeDeadMod;
+
+  public final double PercentTimeDeadModPerLevel;
+
+  public RuneStats(final double FlatArmorMod, final double FlatArmorModPerLevel,
+      final double FlatArmorPenetrationMod, final double FlatArmorPenetrationModPerLevel,
+      final double FlatAttackSpeedMod, final double FlatBlockMod, final double FlatCritChanceMod,
+      final double FlatCritChanceModPerLevel, final double FlatCritDamageMod,
+      final double FlatCritDamageModPerLevel, final double FlatDodgeMod,
+      final double FlatDodgeModPerLevel, final double FlatEXPBonus,
+      final double FlatEnergyModPerLevel, final double FlatEnergyPoolMod,
+      final double FlatEnergyRegenMod, final double FlatEnergyRegenModPerLevel,
+      final double FlatGoldPer10Mod, final double FlatHPModPerLevel, final double FlatHPPoolMod,
+      final double FlatHPRegenMod, final double FlatHPRegenModPerLevel,
+      final double FlatMPModPerLevel, final double FlatMPPoolMod, final double FlatMPRegenMod,
+      final double FlatMPRegenModPerLevel, final double FlatMagicDamageMod,
+      final double FlatMagicDamageModPerLevel, final double FlatMagicPenetrationMod,
+      final double FlatMagicPenetrationModPerLevel, final double FlatMovementSpeedMod,
+      final double FlatMovementSpeedModPerLevel, final double FlatPhysicalDamageMod,
+      final double FlatPhysicalDamageModPerLevel, final double FlatSpellBlockMod,
+      final double FlatSpellBlockModPerLevel, final double FlatTimeDeadMod,
+      final double FlatTimeDeadModPerLevel, final double PercentArmorMod,
+      final double PercentArmorPenetrationMod, final double PercentArmorPenetrationModPerLevel,
+      final double PercentAttackSpeedMod, final double PercentAttackSpeedModPerLevel,
+      final double PercentBlockMod, final double PercentCooldownMod,
+      final double PercentCooldownModPerLevel, final double PercentCritChanceMod,
+      final double PercentCritDamageMod, final double PercentDodgeMod, final double PercentEXPBonus,
+      final double PercentHPPoolMod, final double PercentHPRegenMod,
+      final double PercentLifeStealMod, final double PercentMPPoolMod,
+      final double PercentMPRegenMod, final double PercentMagicDamageMod,
+      final double PercentMagicPenetrationMod, final double PercentMagicPenetrationModPerLevel,
+      final double PercentMovementSpeedMod, final double PercentMovementSpeedModPerLevel,
+      final double PercentPhysicalDamageMod, final double PercentSpellBlockMod,
+      final double PercentSpellVampMod, final double PercentTimeDeadMod,
+<span class="nc" id="L175">      final double PercentTimeDeadModPerLevel) {</span>
+<span class="nc" id="L176">    this.FlatArmorMod = FlatArmorMod;</span>
+<span class="nc" id="L177">    this.FlatArmorModPerLevel = FlatArmorModPerLevel;</span>
+<span class="nc" id="L178">    this.FlatArmorPenetrationMod = FlatArmorPenetrationMod;</span>
+<span class="nc" id="L179">    this.FlatArmorPenetrationModPerLevel = FlatArmorPenetrationModPerLevel;</span>
+<span class="nc" id="L180">    this.FlatAttackSpeedMod = FlatAttackSpeedMod;</span>
+<span class="nc" id="L181">    this.FlatBlockMod = FlatBlockMod;</span>
+<span class="nc" id="L182">    this.FlatCritChanceMod = FlatCritChanceMod;</span>
+<span class="nc" id="L183">    this.FlatCritChanceModPerLevel = FlatCritChanceModPerLevel;</span>
+<span class="nc" id="L184">    this.FlatCritDamageMod = FlatCritDamageMod;</span>
+<span class="nc" id="L185">    this.FlatCritDamageModPerLevel = FlatCritDamageModPerLevel;</span>
+<span class="nc" id="L186">    this.FlatDodgeMod = FlatDodgeMod;</span>
+<span class="nc" id="L187">    this.FlatDodgeModPerLevel = FlatDodgeModPerLevel;</span>
+<span class="nc" id="L188">    this.FlatEXPBonus = FlatEXPBonus;</span>
+<span class="nc" id="L189">    this.FlatEnergyModPerLevel = FlatEnergyModPerLevel;</span>
+<span class="nc" id="L190">    this.FlatEnergyPoolMod = FlatEnergyPoolMod;</span>
+<span class="nc" id="L191">    this.FlatEnergyRegenMod = FlatEnergyRegenMod;</span>
+<span class="nc" id="L192">    this.FlatEnergyRegenModPerLevel = FlatEnergyRegenModPerLevel;</span>
+<span class="nc" id="L193">    this.FlatGoldPer10Mod = FlatGoldPer10Mod;</span>
+<span class="nc" id="L194">    this.FlatHPModPerLevel = FlatHPModPerLevel;</span>
+<span class="nc" id="L195">    this.FlatHPPoolMod = FlatHPPoolMod;</span>
+<span class="nc" id="L196">    this.FlatHPRegenMod = FlatHPRegenMod;</span>
+<span class="nc" id="L197">    this.FlatHPRegenModPerLevel = FlatHPRegenModPerLevel;</span>
+<span class="nc" id="L198">    this.FlatMPModPerLevel = FlatMPModPerLevel;</span>
+<span class="nc" id="L199">    this.FlatMPPoolMod = FlatMPPoolMod;</span>
+<span class="nc" id="L200">    this.FlatMPRegenMod = FlatMPRegenMod;</span>
+<span class="nc" id="L201">    this.FlatMPRegenModPerLevel = FlatMPRegenModPerLevel;</span>
+<span class="nc" id="L202">    this.FlatMagicDamageMod = FlatMagicDamageMod;</span>
+<span class="nc" id="L203">    this.FlatMagicDamageModPerLevel = FlatMagicDamageModPerLevel;</span>
+<span class="nc" id="L204">    this.FlatMagicPenetrationMod = FlatMagicPenetrationMod;</span>
+<span class="nc" id="L205">    this.FlatMagicPenetrationModPerLevel = FlatMagicPenetrationModPerLevel;</span>
+<span class="nc" id="L206">    this.FlatMovementSpeedMod = FlatMovementSpeedMod;</span>
+<span class="nc" id="L207">    this.FlatMovementSpeedModPerLevel = FlatMovementSpeedModPerLevel;</span>
+<span class="nc" id="L208">    this.FlatPhysicalDamageMod = FlatPhysicalDamageMod;</span>
+<span class="nc" id="L209">    this.FlatPhysicalDamageModPerLevel = FlatPhysicalDamageModPerLevel;</span>
+<span class="nc" id="L210">    this.FlatSpellBlockMod = FlatSpellBlockMod;</span>
+<span class="nc" id="L211">    this.FlatSpellBlockModPerLevel = FlatSpellBlockModPerLevel;</span>
+<span class="nc" id="L212">    this.FlatTimeDeadMod = FlatTimeDeadMod;</span>
+<span class="nc" id="L213">    this.FlatTimeDeadModPerLevel = FlatTimeDeadModPerLevel;</span>
+<span class="nc" id="L214">    this.PercentArmorMod = PercentArmorMod;</span>
+<span class="nc" id="L215">    this.PercentArmorPenetrationMod = PercentArmorPenetrationMod;</span>
+<span class="nc" id="L216">    this.PercentArmorPenetrationModPerLevel = PercentArmorPenetrationModPerLevel;</span>
+<span class="nc" id="L217">    this.PercentAttackSpeedMod = PercentAttackSpeedMod;</span>
+<span class="nc" id="L218">    this.PercentAttackSpeedModPerLevel = PercentAttackSpeedModPerLevel;</span>
+<span class="nc" id="L219">    this.PercentBlockMod = PercentBlockMod;</span>
+<span class="nc" id="L220">    this.PercentCooldownMod = PercentCooldownMod;</span>
+<span class="nc" id="L221">    this.PercentCooldownModPerLevel = PercentCooldownModPerLevel;</span>
+<span class="nc" id="L222">    this.PercentCritChanceMod = PercentCritChanceMod;</span>
+<span class="nc" id="L223">    this.PercentCritDamageMod = PercentCritDamageMod;</span>
+<span class="nc" id="L224">    this.PercentDodgeMod = PercentDodgeMod;</span>
+<span class="nc" id="L225">    this.PercentEXPBonus = PercentEXPBonus;</span>
+<span class="nc" id="L226">    this.PercentHPPoolMod = PercentHPPoolMod;</span>
+<span class="nc" id="L227">    this.PercentHPRegenMod = PercentHPRegenMod;</span>
+<span class="nc" id="L228">    this.PercentLifeStealMod = PercentLifeStealMod;</span>
+<span class="nc" id="L229">    this.PercentMPPoolMod = PercentMPPoolMod;</span>
+<span class="nc" id="L230">    this.PercentMPRegenMod = PercentMPRegenMod;</span>
+<span class="nc" id="L231">    this.PercentMagicDamageMod = PercentMagicDamageMod;</span>
+<span class="nc" id="L232">    this.PercentMagicPenetrationMod = PercentMagicPenetrationMod;</span>
+<span class="nc" id="L233">    this.PercentMagicPenetrationModPerLevel = PercentMagicPenetrationModPerLevel;</span>
+<span class="nc" id="L234">    this.PercentMovementSpeedMod = PercentMovementSpeedMod;</span>
+<span class="nc" id="L235">    this.PercentMovementSpeedModPerLevel = PercentMovementSpeedModPerLevel;</span>
+<span class="nc" id="L236">    this.PercentPhysicalDamageMod = PercentPhysicalDamageMod;</span>
+<span class="nc" id="L237">    this.PercentSpellBlockMod = PercentSpellBlockMod;</span>
+<span class="nc" id="L238">    this.PercentSpellVampMod = PercentSpellVampMod;</span>
+<span class="nc" id="L239">    this.PercentTimeDeadMod = PercentTimeDeadMod;</span>
+<span class="nc" id="L240">    this.PercentTimeDeadModPerLevel = PercentTimeDeadModPerLevel;</span>
+<span class="nc" id="L241">  }</span>
+
+  @Override
+  public boolean equals(final Object obj) {
+<span class="nc bnc" id="L245" title="All 2 branches missed.">    if (obj == this) return true;</span>
+<span class="nc bnc" id="L246" title="All 2 branches missed.">    if (!(obj instanceof RuneStats)) return false;</span>
+<span class="nc" id="L247">    final RuneStats other = (RuneStats) obj;</span>
+<span class="nc" id="L248">    return true</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatArmorMod, other.FlatArmorMod)</span>
+<span class="nc bnc" id="L250" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatArmorModPerLevel, other.FlatArmorModPerLevel)</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatArmorPenetrationMod, other.FlatArmorPenetrationMod)</span>
+<span class="nc bnc" id="L252" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatArmorPenetrationModPerLevel, other.FlatArmorPenetrationModPerLevel)</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatAttackSpeedMod, other.FlatAttackSpeedMod)</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatBlockMod, other.FlatBlockMod)</span>
+<span class="nc bnc" id="L255" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatCritChanceMod, other.FlatCritChanceMod)</span>
+<span class="nc bnc" id="L256" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatCritChanceModPerLevel, other.FlatCritChanceModPerLevel)</span>
+<span class="nc bnc" id="L257" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatCritDamageMod, other.FlatCritDamageMod)</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatCritDamageModPerLevel, other.FlatCritDamageModPerLevel)</span>
+<span class="nc bnc" id="L259" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatDodgeMod, other.FlatDodgeMod)</span>
+<span class="nc bnc" id="L260" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatDodgeModPerLevel, other.FlatDodgeModPerLevel)</span>
+<span class="nc bnc" id="L261" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatEXPBonus, other.FlatEXPBonus)</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatEnergyModPerLevel, other.FlatEnergyModPerLevel)</span>
+<span class="nc bnc" id="L263" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatEnergyPoolMod, other.FlatEnergyPoolMod)</span>
+<span class="nc bnc" id="L264" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatEnergyRegenMod, other.FlatEnergyRegenMod)</span>
+<span class="nc bnc" id="L265" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatEnergyRegenModPerLevel, other.FlatEnergyRegenModPerLevel)</span>
+<span class="nc bnc" id="L266" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatGoldPer10Mod, other.FlatGoldPer10Mod)</span>
+<span class="nc bnc" id="L267" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatHPModPerLevel, other.FlatHPModPerLevel)</span>
+<span class="nc bnc" id="L268" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatHPPoolMod, other.FlatHPPoolMod)</span>
+<span class="nc bnc" id="L269" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatHPRegenMod, other.FlatHPRegenMod)</span>
+<span class="nc bnc" id="L270" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatHPRegenModPerLevel, other.FlatHPRegenModPerLevel)</span>
+<span class="nc bnc" id="L271" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMPModPerLevel, other.FlatMPModPerLevel)</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMPPoolMod, other.FlatMPPoolMod)</span>
+<span class="nc bnc" id="L273" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMPRegenMod, other.FlatMPRegenMod)</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMPRegenModPerLevel, other.FlatMPRegenModPerLevel)</span>
+<span class="nc bnc" id="L275" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMagicDamageMod, other.FlatMagicDamageMod)</span>
+<span class="nc bnc" id="L276" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMagicDamageModPerLevel, other.FlatMagicDamageModPerLevel)</span>
+<span class="nc bnc" id="L277" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMagicPenetrationMod, other.FlatMagicPenetrationMod)</span>
+<span class="nc bnc" id="L278" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMagicPenetrationModPerLevel, other.FlatMagicPenetrationModPerLevel)</span>
+<span class="nc bnc" id="L279" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMovementSpeedMod, other.FlatMovementSpeedMod)</span>
+<span class="nc bnc" id="L280" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatMovementSpeedModPerLevel, other.FlatMovementSpeedModPerLevel)</span>
+<span class="nc bnc" id="L281" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatPhysicalDamageMod, other.FlatPhysicalDamageMod)</span>
+<span class="nc bnc" id="L282" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatPhysicalDamageModPerLevel, other.FlatPhysicalDamageModPerLevel)</span>
+<span class="nc bnc" id="L283" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatSpellBlockMod, other.FlatSpellBlockMod)</span>
+<span class="nc bnc" id="L284" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatSpellBlockModPerLevel, other.FlatSpellBlockModPerLevel)</span>
+<span class="nc bnc" id="L285" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatTimeDeadMod, other.FlatTimeDeadMod)</span>
+<span class="nc bnc" id="L286" title="All 2 branches missed.">        &amp;&amp; Objects.equal(FlatTimeDeadModPerLevel, other.FlatTimeDeadModPerLevel)</span>
+<span class="nc bnc" id="L287" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentArmorMod, other.PercentArmorMod)</span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentArmorPenetrationMod, other.PercentArmorPenetrationMod)</span>
+<span class="nc bnc" id="L289" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentArmorPenetrationModPerLevel, other.PercentArmorPenetrationModPerLevel)</span>
+<span class="nc bnc" id="L290" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentAttackSpeedMod, other.PercentAttackSpeedMod)</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentAttackSpeedModPerLevel, other.PercentAttackSpeedModPerLevel)</span>
+<span class="nc bnc" id="L292" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentBlockMod, other.PercentBlockMod)</span>
+<span class="nc bnc" id="L293" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentCooldownMod, other.PercentCooldownMod)</span>
+<span class="nc bnc" id="L294" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentCooldownModPerLevel, other.PercentCooldownModPerLevel)</span>
+<span class="nc bnc" id="L295" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentCritChanceMod, other.PercentCritChanceMod)</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentCritDamageMod, other.PercentCritDamageMod)</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentDodgeMod, other.PercentDodgeMod)</span>
+<span class="nc bnc" id="L298" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentEXPBonus, other.PercentEXPBonus)</span>
+<span class="nc bnc" id="L299" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentHPPoolMod, other.PercentHPPoolMod)</span>
+<span class="nc bnc" id="L300" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentHPRegenMod, other.PercentHPRegenMod)</span>
+<span class="nc bnc" id="L301" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentLifeStealMod, other.PercentLifeStealMod)</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentMPPoolMod, other.PercentMPPoolMod)</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentMPRegenMod, other.PercentMPRegenMod)</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentMagicDamageMod, other.PercentMagicDamageMod)</span>
+<span class="nc bnc" id="L305" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentMagicPenetrationMod, other.PercentMagicPenetrationMod)</span>
+<span class="nc bnc" id="L306" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentMagicPenetrationModPerLevel, other.PercentMagicPenetrationModPerLevel)</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentMovementSpeedMod, other.PercentMovementSpeedMod)</span>
+<span class="nc bnc" id="L308" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentMovementSpeedModPerLevel, other.PercentMovementSpeedModPerLevel)</span>
+<span class="nc bnc" id="L309" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentPhysicalDamageMod, other.PercentPhysicalDamageMod)</span>
+<span class="nc bnc" id="L310" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentSpellBlockMod, other.PercentSpellBlockMod)</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentSpellVampMod, other.PercentSpellVampMod)</span>
+<span class="nc bnc" id="L312" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentTimeDeadMod, other.PercentTimeDeadMod)</span>
+<span class="nc bnc" id="L313" title="All 2 branches missed.">        &amp;&amp; Objects.equal(PercentTimeDeadModPerLevel, other.PercentTimeDeadModPerLevel);}</span>
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L317">    return Objects.hashCode(0,</span>
+<span class="nc" id="L318">        FlatArmorMod,</span>
+<span class="nc" id="L319">        FlatArmorModPerLevel,</span>
+<span class="nc" id="L320">        FlatArmorPenetrationMod,</span>
+<span class="nc" id="L321">        FlatArmorPenetrationModPerLevel,</span>
+<span class="nc" id="L322">        FlatAttackSpeedMod,</span>
+<span class="nc" id="L323">        FlatBlockMod,</span>
+<span class="nc" id="L324">        FlatCritChanceMod,</span>
+<span class="nc" id="L325">        FlatCritChanceModPerLevel,</span>
+<span class="nc" id="L326">        FlatCritDamageMod,</span>
+<span class="nc" id="L327">        FlatCritDamageModPerLevel,</span>
+<span class="nc" id="L328">        FlatDodgeMod,</span>
+<span class="nc" id="L329">        FlatDodgeModPerLevel,</span>
+<span class="nc" id="L330">        FlatEXPBonus,</span>
+<span class="nc" id="L331">        FlatEnergyModPerLevel,</span>
+<span class="nc" id="L332">        FlatEnergyPoolMod,</span>
+<span class="nc" id="L333">        FlatEnergyRegenMod,</span>
+<span class="nc" id="L334">        FlatEnergyRegenModPerLevel,</span>
+<span class="nc" id="L335">        FlatGoldPer10Mod,</span>
+<span class="nc" id="L336">        FlatHPModPerLevel,</span>
+<span class="nc" id="L337">        FlatHPPoolMod,</span>
+<span class="nc" id="L338">        FlatHPRegenMod,</span>
+<span class="nc" id="L339">        FlatHPRegenModPerLevel,</span>
+<span class="nc" id="L340">        FlatMPModPerLevel,</span>
+<span class="nc" id="L341">        FlatMPPoolMod,</span>
+<span class="nc" id="L342">        FlatMPRegenMod,</span>
+<span class="nc" id="L343">        FlatMPRegenModPerLevel,</span>
+<span class="nc" id="L344">        FlatMagicDamageMod,</span>
+<span class="nc" id="L345">        FlatMagicDamageModPerLevel,</span>
+<span class="nc" id="L346">        FlatMagicPenetrationMod,</span>
+<span class="nc" id="L347">        FlatMagicPenetrationModPerLevel,</span>
+<span class="nc" id="L348">        FlatMovementSpeedMod,</span>
+<span class="nc" id="L349">        FlatMovementSpeedModPerLevel,</span>
+<span class="nc" id="L350">        FlatPhysicalDamageMod,</span>
+<span class="nc" id="L351">        FlatPhysicalDamageModPerLevel,</span>
+<span class="nc" id="L352">        FlatSpellBlockMod,</span>
+<span class="nc" id="L353">        FlatSpellBlockModPerLevel,</span>
+<span class="nc" id="L354">        FlatTimeDeadMod,</span>
+<span class="nc" id="L355">        FlatTimeDeadModPerLevel,</span>
+<span class="nc" id="L356">        PercentArmorMod,</span>
+<span class="nc" id="L357">        PercentArmorPenetrationMod,</span>
+<span class="nc" id="L358">        PercentArmorPenetrationModPerLevel,</span>
+<span class="nc" id="L359">        PercentAttackSpeedMod,</span>
+<span class="nc" id="L360">        PercentAttackSpeedModPerLevel,</span>
+<span class="nc" id="L361">        PercentBlockMod,</span>
+<span class="nc" id="L362">        PercentCooldownMod,</span>
+<span class="nc" id="L363">        PercentCooldownModPerLevel,</span>
+<span class="nc" id="L364">        PercentCritChanceMod,</span>
+<span class="nc" id="L365">        PercentCritDamageMod,</span>
+<span class="nc" id="L366">        PercentDodgeMod,</span>
+<span class="nc" id="L367">        PercentEXPBonus,</span>
+<span class="nc" id="L368">        PercentHPPoolMod,</span>
+<span class="nc" id="L369">        PercentHPRegenMod,</span>
+<span class="nc" id="L370">        PercentLifeStealMod,</span>
+<span class="nc" id="L371">        PercentMPPoolMod,</span>
+<span class="nc" id="L372">        PercentMPRegenMod,</span>
+<span class="nc" id="L373">        PercentMagicDamageMod,</span>
+<span class="nc" id="L374">        PercentMagicPenetrationMod,</span>
+<span class="nc" id="L375">        PercentMagicPenetrationModPerLevel,</span>
+<span class="nc" id="L376">        PercentMovementSpeedMod,</span>
+<span class="nc" id="L377">        PercentMovementSpeedModPerLevel,</span>
+<span class="nc" id="L378">        PercentPhysicalDamageMod,</span>
+<span class="nc" id="L379">        PercentSpellBlockMod,</span>
+<span class="nc" id="L380">        PercentSpellVampMod,</span>
+<span class="nc" id="L381">        PercentTimeDeadMod,</span>
+<span class="nc" id="L382">        PercentTimeDeadModPerLevel);}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

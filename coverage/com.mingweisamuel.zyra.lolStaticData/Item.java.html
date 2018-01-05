@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Item.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">zyra</a> &gt; <a href="index.source.html" class="el_package">com.mingweisamuel.zyra.lolStaticData</a> &gt; <span class="el_source">Item.java</span></div><h1>Item.java</h1><pre class="source lang-java linenums">package com.mingweisamuel.zyra.lolStaticData;
+
+import com.google.common.base.Objects;
+import java.io.Serializable;
+import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.Object;
+import java.lang.Override;
+import java.lang.String;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Item.&lt;br&gt;&lt;br&gt;
+ *
+ * This object contains item data..&lt;br&gt;&lt;br&gt;
+ *
+ * This class was automatically generated from the &lt;a href=&quot;http://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.min.json&quot;&gt;Riot API reference&lt;/a&gt;. */
+public class Item implements Serializable {
+  public final String colloq;
+
+  public final boolean consumeOnFull;
+
+  public final boolean consumed;
+
+  public final int depth;
+
+  public final String description;
+
+  public final Map&lt;String, String&gt; effect;
+
+  public final List&lt;String&gt; from;
+
+  public final Gold gold;
+
+  public final String group;
+
+  public final boolean hideFromAll;
+
+  public final int id;
+
+  public final Image image;
+
+  public final boolean inStore;
+
+  public final List&lt;String&gt; into;
+
+  public final Map&lt;Integer, Boolean&gt; maps;
+
+  public final String name;
+
+  public final String plaintext;
+
+  public final String requiredChampion;
+
+  public final String sanitizedDescription;
+
+  public final int specialRecipe;
+
+  public final int stacks;
+
+  public final InventoryDataStats stats;
+
+  public final List&lt;String&gt; tags;
+
+  public Item(final String colloq, final boolean consumeOnFull, final boolean consumed,
+      final int depth, final String description, final Map&lt;String, String&gt; effect,
+      final List&lt;String&gt; from, final Gold gold, final String group, final boolean hideFromAll,
+      final int id, final Image image, final boolean inStore, final List&lt;String&gt; into,
+      final Map&lt;Integer, Boolean&gt; maps, final String name, final String plaintext,
+      final String requiredChampion, final String sanitizedDescription, final int specialRecipe,
+<span class="nc" id="L72">      final int stacks, final InventoryDataStats stats, final List&lt;String&gt; tags) {</span>
+<span class="nc" id="L73">    this.colloq = colloq;</span>
+<span class="nc" id="L74">    this.consumeOnFull = consumeOnFull;</span>
+<span class="nc" id="L75">    this.consumed = consumed;</span>
+<span class="nc" id="L76">    this.depth = depth;</span>
+<span class="nc" id="L77">    this.description = description;</span>
+<span class="nc" id="L78">    this.effect = effect;</span>
+<span class="nc" id="L79">    this.from = from;</span>
+<span class="nc" id="L80">    this.gold = gold;</span>
+<span class="nc" id="L81">    this.group = group;</span>
+<span class="nc" id="L82">    this.hideFromAll = hideFromAll;</span>
+<span class="nc" id="L83">    this.id = id;</span>
+<span class="nc" id="L84">    this.image = image;</span>
+<span class="nc" id="L85">    this.inStore = inStore;</span>
+<span class="nc" id="L86">    this.into = into;</span>
+<span class="nc" id="L87">    this.maps = maps;</span>
+<span class="nc" id="L88">    this.name = name;</span>
+<span class="nc" id="L89">    this.plaintext = plaintext;</span>
+<span class="nc" id="L90">    this.requiredChampion = requiredChampion;</span>
+<span class="nc" id="L91">    this.sanitizedDescription = sanitizedDescription;</span>
+<span class="nc" id="L92">    this.specialRecipe = specialRecipe;</span>
+<span class="nc" id="L93">    this.stacks = stacks;</span>
+<span class="nc" id="L94">    this.stats = stats;</span>
+<span class="nc" id="L95">    this.tags = tags;</span>
+<span class="nc" id="L96">  }</span>
+
+  @Override
+  public boolean equals(final Object obj) {
+<span class="nc bnc" id="L100" title="All 2 branches missed.">    if (obj == this) return true;</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">    if (!(obj instanceof Item)) return false;</span>
+<span class="nc" id="L102">    final Item other = (Item) obj;</span>
+<span class="nc" id="L103">    return true</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">        &amp;&amp; Objects.equal(colloq, other.colloq)</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        &amp;&amp; Objects.equal(consumeOnFull, other.consumeOnFull)</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">        &amp;&amp; Objects.equal(consumed, other.consumed)</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        &amp;&amp; Objects.equal(depth, other.depth)</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        &amp;&amp; Objects.equal(description, other.description)</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        &amp;&amp; Objects.equal(effect, other.effect)</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        &amp;&amp; Objects.equal(from, other.from)</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        &amp;&amp; Objects.equal(gold, other.gold)</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        &amp;&amp; Objects.equal(group, other.group)</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        &amp;&amp; Objects.equal(hideFromAll, other.hideFromAll)</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        &amp;&amp; Objects.equal(id, other.id)</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        &amp;&amp; Objects.equal(image, other.image)</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        &amp;&amp; Objects.equal(inStore, other.inStore)</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        &amp;&amp; Objects.equal(into, other.into)</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        &amp;&amp; Objects.equal(maps, other.maps)</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        &amp;&amp; Objects.equal(name, other.name)</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">        &amp;&amp; Objects.equal(plaintext, other.plaintext)</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        &amp;&amp; Objects.equal(requiredChampion, other.requiredChampion)</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        &amp;&amp; Objects.equal(sanitizedDescription, other.sanitizedDescription)</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        &amp;&amp; Objects.equal(specialRecipe, other.specialRecipe)</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        &amp;&amp; Objects.equal(stacks, other.stacks)</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        &amp;&amp; Objects.equal(stats, other.stats)</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        &amp;&amp; Objects.equal(tags, other.tags);}</span>
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L130">    return Objects.hashCode(0,</span>
+        colloq,
+<span class="nc" id="L132">        consumeOnFull,</span>
+<span class="nc" id="L133">        consumed,</span>
+<span class="nc" id="L134">        depth,</span>
+        description,
+        effect,
+        from,
+        gold,
+        group,
+<span class="nc" id="L140">        hideFromAll,</span>
+<span class="nc" id="L141">        id,</span>
+        image,
+<span class="nc" id="L143">        inStore,</span>
+        into,
+        maps,
+        name,
+        plaintext,
+        requiredChampion,
+        sanitizedDescription,
+<span class="nc" id="L150">        specialRecipe,</span>
+<span class="nc" id="L151">        stacks,</span>
+        stats,
+        tags);}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

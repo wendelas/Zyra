@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SummonerSpell.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">zyra</a> &gt; <a href="index.source.html" class="el_package">com.mingweisamuel.zyra.lolStaticData</a> &gt; <span class="el_source">SummonerSpell.java</span></div><h1>SummonerSpell.java</h1><pre class="source lang-java linenums">package com.mingweisamuel.zyra.lolStaticData;
+
+import com.google.common.base.Objects;
+import java.io.Serializable;
+import java.lang.Double;
+import java.lang.Integer;
+import java.lang.Object;
+import java.lang.Override;
+import java.lang.String;
+import java.util.List;
+
+/**
+ * SummonerSpell.&lt;br&gt;&lt;br&gt;
+ *
+ * This object contains summoner spell data..&lt;br&gt;&lt;br&gt;
+ *
+ * This class was automatically generated from the &lt;a href=&quot;http://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.min.json&quot;&gt;Riot API reference&lt;/a&gt;. */
+public class SummonerSpell implements Serializable {
+  public final List&lt;Double&gt; cooldown;
+
+  public final String cooldownBurn;
+
+  public final List&lt;Integer&gt; cost;
+
+  public final String costBurn;
+
+  public final String costType;
+
+  public final String description;
+
+  /**
+   * This field is a List of List of Double. */
+  public final List&lt;List&lt;Double&gt;&gt; effect;
+
+  public final List&lt;String&gt; effectBurn;
+
+  public final int id;
+
+  public final Image image;
+
+  public final String key;
+
+  public final LevelTip leveltip;
+
+  public final int maxrank;
+
+  public final List&lt;String&gt; modes;
+
+  public final String name;
+
+  /**
+   * This field is either a List of Integer or the String 'self' for spells that target one's own champion. */
+  public final List&lt;Integer&gt; range;
+
+  public final String rangeBurn;
+
+  public final String resource;
+
+  public final String sanitizedDescription;
+
+  public final String sanitizedTooltip;
+
+  public final int summonerLevel;
+
+  public final String tooltip;
+
+  public final List&lt;SpellVars&gt; vars;
+
+  public SummonerSpell(final List&lt;Double&gt; cooldown, final String cooldownBurn,
+      final List&lt;Integer&gt; cost, final String costBurn, final String costType,
+      final String description, final List&lt;List&lt;Double&gt;&gt; effect, final List&lt;String&gt; effectBurn,
+      final int id, final Image image, final String key, final LevelTip leveltip, final int maxrank,
+      final List&lt;String&gt; modes, final String name, final List&lt;Integer&gt; range,
+      final String rangeBurn, final String resource, final String sanitizedDescription,
+      final String sanitizedTooltip, final int summonerLevel, final String tooltip,
+<span class="nc" id="L76">      final List&lt;SpellVars&gt; vars) {</span>
+<span class="nc" id="L77">    this.cooldown = cooldown;</span>
+<span class="nc" id="L78">    this.cooldownBurn = cooldownBurn;</span>
+<span class="nc" id="L79">    this.cost = cost;</span>
+<span class="nc" id="L80">    this.costBurn = costBurn;</span>
+<span class="nc" id="L81">    this.costType = costType;</span>
+<span class="nc" id="L82">    this.description = description;</span>
+<span class="nc" id="L83">    this.effect = effect;</span>
+<span class="nc" id="L84">    this.effectBurn = effectBurn;</span>
+<span class="nc" id="L85">    this.id = id;</span>
+<span class="nc" id="L86">    this.image = image;</span>
+<span class="nc" id="L87">    this.key = key;</span>
+<span class="nc" id="L88">    this.leveltip = leveltip;</span>
+<span class="nc" id="L89">    this.maxrank = maxrank;</span>
+<span class="nc" id="L90">    this.modes = modes;</span>
+<span class="nc" id="L91">    this.name = name;</span>
+<span class="nc" id="L92">    this.range = range;</span>
+<span class="nc" id="L93">    this.rangeBurn = rangeBurn;</span>
+<span class="nc" id="L94">    this.resource = resource;</span>
+<span class="nc" id="L95">    this.sanitizedDescription = sanitizedDescription;</span>
+<span class="nc" id="L96">    this.sanitizedTooltip = sanitizedTooltip;</span>
+<span class="nc" id="L97">    this.summonerLevel = summonerLevel;</span>
+<span class="nc" id="L98">    this.tooltip = tooltip;</span>
+<span class="nc" id="L99">    this.vars = vars;</span>
+<span class="nc" id="L100">  }</span>
+
+  @Override
+  public boolean equals(final Object obj) {
+<span class="nc bnc" id="L104" title="All 2 branches missed.">    if (obj == this) return true;</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">    if (!(obj instanceof SummonerSpell)) return false;</span>
+<span class="nc" id="L106">    final SummonerSpell other = (SummonerSpell) obj;</span>
+<span class="nc" id="L107">    return true</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        &amp;&amp; Objects.equal(cooldown, other.cooldown)</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        &amp;&amp; Objects.equal(cooldownBurn, other.cooldownBurn)</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        &amp;&amp; Objects.equal(cost, other.cost)</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        &amp;&amp; Objects.equal(costBurn, other.costBurn)</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        &amp;&amp; Objects.equal(costType, other.costType)</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        &amp;&amp; Objects.equal(description, other.description)</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        &amp;&amp; Objects.equal(effect, other.effect)</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        &amp;&amp; Objects.equal(effectBurn, other.effectBurn)</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        &amp;&amp; Objects.equal(id, other.id)</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        &amp;&amp; Objects.equal(image, other.image)</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        &amp;&amp; Objects.equal(key, other.key)</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        &amp;&amp; Objects.equal(leveltip, other.leveltip)</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">        &amp;&amp; Objects.equal(maxrank, other.maxrank)</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        &amp;&amp; Objects.equal(modes, other.modes)</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        &amp;&amp; Objects.equal(name, other.name)</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        &amp;&amp; Objects.equal(range, other.range)</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        &amp;&amp; Objects.equal(rangeBurn, other.rangeBurn)</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        &amp;&amp; Objects.equal(resource, other.resource)</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        &amp;&amp; Objects.equal(sanitizedDescription, other.sanitizedDescription)</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        &amp;&amp; Objects.equal(sanitizedTooltip, other.sanitizedTooltip)</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        &amp;&amp; Objects.equal(summonerLevel, other.summonerLevel)</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">        &amp;&amp; Objects.equal(tooltip, other.tooltip)</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        &amp;&amp; Objects.equal(vars, other.vars);}</span>
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L134">    return Objects.hashCode(0,</span>
+        cooldown,
+        cooldownBurn,
+        cost,
+        costBurn,
+        costType,
+        description,
+        effect,
+        effectBurn,
+<span class="nc" id="L143">        id,</span>
+        image,
+        key,
+        leveltip,
+<span class="nc" id="L147">        maxrank,</span>
+        modes,
+        name,
+        range,
+        rangeBurn,
+        resource,
+        sanitizedDescription,
+        sanitizedTooltip,
+<span class="nc" id="L155">        summonerLevel,</span>
+        tooltip,
+        vars);}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

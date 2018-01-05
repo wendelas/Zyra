@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Realm.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">zyra</a> &gt; <a href="index.source.html" class="el_package">com.mingweisamuel.zyra.lolStaticData</a> &gt; <span class="el_source">Realm.java</span></div><h1>Realm.java</h1><pre class="source lang-java linenums">package com.mingweisamuel.zyra.lolStaticData;
+
+import com.google.common.base.Objects;
+import java.io.Serializable;
+import java.lang.Object;
+import java.lang.Override;
+import java.lang.String;
+import java.util.Map;
+
+/**
+ * Realm.&lt;br&gt;&lt;br&gt;
+ *
+ * This object contains realm data..&lt;br&gt;&lt;br&gt;
+ *
+ * This class was automatically generated from the &lt;a href=&quot;http://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.min.json&quot;&gt;Riot API reference&lt;/a&gt;. */
+public class Realm implements Serializable {
+  /**
+   * The base CDN URL. */
+  public final String cdn;
+
+  /**
+   * Latest changed version of Dragon Magic's CSS file. */
+  public final String css;
+
+  /**
+   * Latest changed version of Dragon Magic. */
+  public final String dd;
+
+  /**
+   * Default language for this realm. */
+  public final String l;
+
+  /**
+   * Legacy script mode for IE6 or older. */
+  public final String lg;
+
+  /**
+   * Latest changed version for each data type listed. */
+  public final Map&lt;String, String&gt; n;
+
+  /**
+   * Special behavior number identifying the largest profile icon ID that can be used under 500. Any profile icon that is requested between this number and 500 should be mapped to 0. */
+  public final int profileiconmax;
+
+  /**
+   * Additional API data drawn from other sources that may be related to Data Dragon functionality. */
+  public final String store;
+
+  /**
+   * Current version of this file for this realm. */
+  public final String v;
+
+  public Realm(final String cdn, final String css, final String dd, final String l, final String lg,
+<span class="nc" id="L54">      final Map&lt;String, String&gt; n, final int profileiconmax, final String store, final String v) {</span>
+<span class="nc" id="L55">    this.cdn = cdn;</span>
+<span class="nc" id="L56">    this.css = css;</span>
+<span class="nc" id="L57">    this.dd = dd;</span>
+<span class="nc" id="L58">    this.l = l;</span>
+<span class="nc" id="L59">    this.lg = lg;</span>
+<span class="nc" id="L60">    this.n = n;</span>
+<span class="nc" id="L61">    this.profileiconmax = profileiconmax;</span>
+<span class="nc" id="L62">    this.store = store;</span>
+<span class="nc" id="L63">    this.v = v;</span>
+<span class="nc" id="L64">  }</span>
+
+  @Override
+  public boolean equals(final Object obj) {
+<span class="nc bnc" id="L68" title="All 2 branches missed.">    if (obj == this) return true;</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">    if (!(obj instanceof Realm)) return false;</span>
+<span class="nc" id="L70">    final Realm other = (Realm) obj;</span>
+<span class="nc" id="L71">    return true</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        &amp;&amp; Objects.equal(cdn, other.cdn)</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        &amp;&amp; Objects.equal(css, other.css)</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        &amp;&amp; Objects.equal(dd, other.dd)</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        &amp;&amp; Objects.equal(l, other.l)</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        &amp;&amp; Objects.equal(lg, other.lg)</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        &amp;&amp; Objects.equal(n, other.n)</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        &amp;&amp; Objects.equal(profileiconmax, other.profileiconmax)</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        &amp;&amp; Objects.equal(store, other.store)</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        &amp;&amp; Objects.equal(v, other.v);}</span>
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L84">    return Objects.hashCode(0,</span>
+        cdn,
+        css,
+        dd,
+        l,
+        lg,
+        n,
+<span class="nc" id="L91">        profileiconmax,</span>
+        store,
+        v);}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

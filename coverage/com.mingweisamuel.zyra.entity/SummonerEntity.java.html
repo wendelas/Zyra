@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SummonerEntity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">zyra</a> &gt; <a href="index.source.html" class="el_package">com.mingweisamuel.zyra.entity</a> &gt; <span class="el_source">SummonerEntity.java</span></div><h1>SummonerEntity.java</h1><pre class="source lang-java linenums">package com.mingweisamuel.zyra.entity;
+
+import com.google.common.collect.Lists;
+import com.mingweisamuel.zyra.RiotApi;
+import com.mingweisamuel.zyra.championMastery.ChampionMastery;
+import com.mingweisamuel.zyra.enums.Region;
+import com.mingweisamuel.zyra.league.LeaguePosition;
+import com.mingweisamuel.zyra.match.Matchlist;
+import com.mingweisamuel.zyra.spectator.CurrentGameInfo;
+import com.mingweisamuel.zyra.summoner.Summoner;
+import com.mingweisamuel.zyra.util.LazyResetableFuture;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+
+/**
+ * A high-level representation of a Summoner. Thread-safe.
+ */
+public class SummonerEntity extends Entity {
+
+    //region static constructors
+    static SummonerEntity create(EntityApi entityApi, Region region, long summonerId) {
+<span class="fc" id="L25">        LazyResetableFuture&lt;Summoner&gt; summonerFuture = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="fc" id="L26">            entityApi.riotApi.summoners.getBySummonerIdAsync(region, summonerId));</span>
+<span class="fc" id="L27">        LazyResetableFuture&lt;Long&gt; summonerIdFuture = LazyResetableFuture.completedFuture(summonerId);</span>
+<span class="fc" id="L28">        LazyResetableFuture&lt;Long&gt; accountIdFuture = summonerFuture.thenApply(s -&gt; s.accountId);</span>
+<span class="fc" id="L29">        LazyResetableFuture&lt;String&gt; standardizedNameFuture =</span>
+<span class="fc" id="L30">            summonerFuture.thenApply(s -&gt; RiotApi.standardizeName(s.name));</span>
+<span class="fc" id="L31">        return new SummonerEntity(entityApi, region, summonerFuture, summonerIdFuture,</span>
+            accountIdFuture, standardizedNameFuture);
+    }
+    static SummonerEntity create(EntityApi entityApi, Region region, long summonerId, long accountId) {
+<span class="nc" id="L35">        LazyResetableFuture&lt;Summoner&gt; summonerFuture = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="nc" id="L36">            entityApi.riotApi.summoners.getBySummonerIdAsync(region, summonerId));</span>
+<span class="nc" id="L37">        LazyResetableFuture&lt;Long&gt; summonerIdFuture = LazyResetableFuture.completedFuture(summonerId);</span>
+<span class="nc" id="L38">        LazyResetableFuture&lt;Long&gt; accountIdFuture = LazyResetableFuture.completedFuture(accountId);</span>
+<span class="nc" id="L39">        LazyResetableFuture&lt;String&gt; standardizedNameFuture =</span>
+<span class="nc" id="L40">            summonerFuture.thenApply(s -&gt; RiotApi.standardizeName(s.name));</span>
+<span class="nc" id="L41">        return new SummonerEntity(entityApi, region, summonerFuture, summonerIdFuture,</span>
+            accountIdFuture, standardizedNameFuture);
+    }
+    static SummonerEntity create(EntityApi entityApi, Region region, long summonerId, long accountId, String name) {
+<span class="fc" id="L45">        LazyResetableFuture&lt;Summoner&gt; summonerFuture = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="nc" id="L46">            entityApi.riotApi.summoners.getBySummonerIdAsync(region, summonerId));</span>
+<span class="fc" id="L47">        LazyResetableFuture&lt;Long&gt; summonerIdFuture = LazyResetableFuture.completedFuture(summonerId);</span>
+<span class="fc" id="L48">        LazyResetableFuture&lt;Long&gt; accountIdFuture = LazyResetableFuture.completedFuture(accountId);</span>
+<span class="fc" id="L49">        LazyResetableFuture&lt;String&gt; standardizedNameFuture =</span>
+<span class="fc" id="L50">            LazyResetableFuture.completedFuture(RiotApi.standardizeName(name));</span>
+<span class="fc" id="L51">        return new SummonerEntity(entityApi, region, summonerFuture, summonerIdFuture,</span>
+            accountIdFuture, standardizedNameFuture);
+    }
+    static SummonerEntity create(EntityApi entityApi, Region region, Summoner summoner) {
+<span class="nc" id="L55">        LazyResetableFuture&lt;Summoner&gt; summonerFuture = LazyResetableFuture.completedFuture(summoner);</span>
+<span class="nc" id="L56">        LazyResetableFuture&lt;Long&gt; summonerIdFuture = LazyResetableFuture.completedFuture(summoner.id);</span>
+<span class="nc" id="L57">        LazyResetableFuture&lt;Long&gt; accountIdFuture = LazyResetableFuture.completedFuture(summoner.accountId);</span>
+<span class="nc" id="L58">        LazyResetableFuture&lt;String&gt; standardizedNameFuture =</span>
+<span class="nc" id="L59">            LazyResetableFuture.completedFuture(RiotApi.standardizeName(summoner.name));</span>
+<span class="nc" id="L60">        return new SummonerEntity(entityApi, region, summonerFuture, summonerIdFuture,</span>
+            accountIdFuture, standardizedNameFuture);
+    }
+    static SummonerEntity createFromAccountId(EntityApi entityApi, Region region, long accountId) {
+<span class="fc" id="L64">        LazyResetableFuture&lt;Summoner&gt; summonerFuture = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="fc" id="L65">            entityApi.riotApi.summoners.getByAccountIdAsync(region, accountId));</span>
+<span class="fc" id="L66">        LazyResetableFuture&lt;Long&gt; summonerIdFuture = summonerFuture.thenApply(s -&gt; s.id);</span>
+<span class="fc" id="L67">        LazyResetableFuture&lt;Long&gt; accountIdFuture = LazyResetableFuture.completedFuture(accountId);</span>
+<span class="fc" id="L68">        LazyResetableFuture&lt;String&gt; standardizedNameFuture =</span>
+<span class="fc" id="L69">            summonerFuture.thenApply(s -&gt; RiotApi.standardizeName(s.name));</span>
+<span class="fc" id="L70">        return new SummonerEntity(entityApi, region, summonerFuture, summonerIdFuture,</span>
+            accountIdFuture, standardizedNameFuture);
+    }
+    static SummonerEntity createFromName(EntityApi entityApi, Region region, String name) {
+<span class="fc" id="L74">        LazyResetableFuture&lt;Summoner&gt; summonerFuture = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="fc" id="L75">            entityApi.riotApi.summoners.getBySummonerNameAsync(region, name));</span>
+<span class="fc" id="L76">        LazyResetableFuture&lt;Long&gt; summonerIdFuture = summonerFuture.thenApply(s -&gt; s.id);</span>
+<span class="fc" id="L77">        LazyResetableFuture&lt;Long&gt; accountIdFuture = summonerFuture.thenApply(s -&gt; s.accountId);</span>
+<span class="fc" id="L78">        LazyResetableFuture&lt;String&gt; standardizedNameFuture =</span>
+<span class="fc" id="L79">            LazyResetableFuture.completedFuture(RiotApi.standardizeName(name));</span>
+<span class="fc" id="L80">        return new SummonerEntity(entityApi, region, summonerFuture, summonerIdFuture,</span>
+            accountIdFuture, standardizedNameFuture);
+    }
+    //endregion
+
+    /** Unique summoner ID, used in most endpoints. */
+    private final LazyResetableFuture&lt;Long&gt; summonerId;
+    /** Unique Riot account ID, used to obtain matchlist. */
+    private final LazyResetableFuture&lt;Long&gt; accountId;
+    /** Summoner name standardized, {@link com.mingweisamuel.zyra.RiotApi#standardizeName(String)}. */
+    private final LazyResetableFuture&lt;String&gt; standardizedName;
+
+    /** General summoner info. */
+    private final LazyResetableFuture&lt;Summoner&gt; summonerInfo;
+    /** Summoner champion mastery information. */
+    private final LazyResetableFuture&lt;List&lt;ChampionMastery&gt;&gt; championMasteries;
+    /** League position (rank). */
+    private final LazyResetableFuture&lt;List&lt;LeaguePosition&gt;&gt; leaguePositions;
+    /** Current game information. */
+    private final LazyResetableFuture&lt;CurrentGameInfo&gt; currentGameInfo;
+    /** Recent match list information. */
+    private final LazyResetableFuture&lt;Matchlist&gt; recentMatchlist;
+
+    /** Lock on updating the query parameters. */
+<span class="fc" id="L104">    private final Object queryLock = new Object();</span>
+<span class="fc" id="L105">    private volatile boolean queryDirty = true;</span>
+<span class="fc" id="L106">    private volatile List&lt;Integer&gt; queryQueues = null;</span>
+<span class="fc" id="L107">    private volatile Long queryBeginTime = null;</span>
+<span class="fc" id="L108">    private volatile Long queryEndTime = null;</span>
+<span class="fc" id="L109">    private volatile List&lt;Integer&gt; queryChampions = null;</span>
+<span class="fc" id="L110">    private volatile List&lt;Integer&gt; querySeasons = null;</span>
+<span class="fc" id="L111">    private volatile Integer queryBeginIndex = null;</span>
+<span class="fc" id="L112">    private volatile Integer queryEndIndex = null;</span>
+    /**
+     * Summoner matchlist information, based on the query parameters above. Each summoner instance caches a single
+     * matchlist query. Sending additional queries will overwrite the previous.
+     */
+    private final LazyResetableFuture&lt;Matchlist&gt; queryMatchlist;
+
+    /**
+     * Creates an uninitialized SummonerEntity. This constructor should not be used directly.
+     * Instead use {@link #create(EntityApi, Region, long)}, {@link #createFromAccountId(EntityApi, Region, long)},
+     * or {@link #createFromName(EntityApi, Region, String)}.
+     *
+     * @param entityApi EntityApi reference. {@link #entityApi}.
+     * @param region Region this summoner exists in. {@link #region}.
+     * @param summonerId
+     * @param accountId
+     * @param standardizedName
+     */
+    private SummonerEntity(EntityApi entityApi, Region region, LazyResetableFuture&lt;Summoner&gt; summonerInfo,
+                           LazyResetableFuture&lt;Long&gt; summonerId, LazyResetableFuture&lt;Long&gt; accountId,
+                           LazyResetableFuture&lt;String&gt; standardizedName) {
+<span class="fc" id="L133">        super(entityApi, region);</span>
+<span class="fc" id="L134">        this.summonerInfo = summonerInfo;</span>
+<span class="fc" id="L135">        this.summonerId = summonerId;</span>
+<span class="fc" id="L136">        this.accountId = accountId;</span>
+<span class="fc" id="L137">        this.standardizedName = standardizedName;</span>
+
+<span class="fc" id="L139">        this.championMasteries = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="fc" id="L140">            entityApi.riotApi.championMasteries.getAllChampionMasteriesAsync(region, summonerId.join()));</span>
+<span class="fc" id="L141">        this.leaguePositions = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="fc" id="L142">            entityApi.riotApi.leagues.getAllLeaguePositionsForSummonerAsync(region, summonerId.join()));</span>
+<span class="fc" id="L143">        this.currentGameInfo = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="fc" id="L144">            entityApi.riotApi.spectator.getCurrentGameInfoBySummonerAsync(region, summonerId.join()));</span>
+<span class="fc" id="L145">        this.recentMatchlist = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="fc" id="L146">            entityApi.riotApi.matches.getRecentMatchlistAsync(region, accountId.join()));</span>
+<span class="fc" id="L147">        this.queryMatchlist = new LazyResetableFuture&lt;&gt;(() -&gt;</span>
+<span class="fc" id="L148">            entityApi.riotApi.matches.getMatchlistAsync(region, accountId.join(), queryQueues, queryBeginTime,</span>
+                queryEndTime, queryChampions, querySeasons, queryBeginIndex, queryEndIndex));
+<span class="fc" id="L150">    }</span>
+
+    // region IDs
+    public boolean loadedSummonerId() {
+<span class="nc" id="L154">        return summonerId.created();</span>
+    }
+    public CompletableFuture&lt;Long&gt; getSummonerIdAsync() {
+<span class="nc" id="L157">        return summonerId.get();</span>
+    }
+    public long getSummonerId() {
+<span class="fc" id="L160">        return summonerId.join();</span>
+    }
+
+    public boolean loadedAccountId() {
+<span class="nc" id="L164">        return accountId.created();</span>
+    }
+    public CompletableFuture&lt;Long&gt; getAccountIdAsync() {
+<span class="nc" id="L167">        return accountId.get();</span>
+    }
+    public long getAccountId() {
+<span class="fc" id="L170">        return accountId.join();</span>
+    }
+
+    public CompletableFuture&lt;String&gt; getStandardizedNameAsync() {
+<span class="nc" id="L174">        return standardizedName.get();</span>
+    }
+    public String getStandardizedName() {
+<span class="fc" id="L177">        return standardizedName.join();</span>
+    }
+    //endregion
+
+    //region summonerInfo
+    public boolean loadedSummonerInfo() {
+<span class="nc" id="L183">        return summonerInfo.isDone();</span>
+    }
+    public CompletableFuture&lt;Summoner&gt; getSummonerInfoAsync() {
+<span class="nc" id="L186">        return summonerInfo.get();</span>
+    }
+    public Summoner getSummonerInfo() {
+<span class="fc" id="L189">        return summonerInfo.join();</span>
+    }
+    public void resetSummonerInfo() {
+<span class="nc" id="L192">        summonerInfo.reset();</span>
+<span class="nc" id="L193">    }</span>
+    //endregion
+
+    //region championMasteries
+    public boolean loadedChampionMasteries() {
+<span class="nc" id="L198">        return championMasteries.isDone();</span>
+    }
+    public CompletableFuture&lt;List&lt;ChampionMastery&gt;&gt; getChampionMasteriesAsync() {
+<span class="nc" id="L201">        return championMasteries.get();</span>
+    }
+    public List&lt;ChampionMastery&gt; getChampionMasteries() {
+<span class="fc" id="L204">        return championMasteries.join();</span>
+    }
+    public void resetChampionMasteries() {
+<span class="nc" id="L207">        championMasteries.reset();</span>
+<span class="nc" id="L208">    }</span>
+    //endregion
+
+    //region leaguePosition
+    public boolean loadedLeaguePositions() {
+<span class="nc" id="L213">        return leaguePositions.isDone();</span>
+    }
+    public CompletableFuture&lt;List&lt;LeaguePosition&gt;&gt; getLeaguePositionsAsync() {
+<span class="nc" id="L216">        return leaguePositions.get();</span>
+    }
+    public List&lt;LeaguePosition&gt; getLeaguePositions() {
+<span class="fc" id="L219">        return leaguePositions.join();</span>
+    }
+    public void resetLeaguePositions() {
+<span class="nc" id="L222">        leaguePositions.reset();</span>
+<span class="nc" id="L223">    }</span>
+    //endregion
+
+    //region currentGameInfo
+    public boolean loadedCurrentGameInfo() {
+<span class="nc" id="L228">        return currentGameInfo.isDone();</span>
+    }
+    public CompletableFuture&lt;CurrentGameInfo&gt; getCurrentGameInfoAsync() {
+<span class="nc" id="L231">        return currentGameInfo.get();</span>
+    }
+    public CurrentGameInfo getCurrentGameInfo() {
+<span class="fc" id="L234">        return currentGameInfo.join();</span>
+    }
+    public void resetCurrentGameInfo() {
+<span class="nc" id="L237">        currentGameInfo.reset();</span>
+<span class="nc" id="L238">    }</span>
+    //endregion
+
+    //region matches recent
+    public boolean loadedRecentMatchlist() {
+<span class="nc" id="L243">        return recentMatchlist.isDone();</span>
+    }
+    public CompletableFuture&lt;Matchlist&gt; getRecentMatchlistAsync() {
+<span class="fc" id="L246">        return recentMatchlist.get();</span>
+    }
+    public Matchlist getRecentMatchlist() {
+<span class="fc" id="L249">        return recentMatchlist.join();</span>
+    }
+    public void resetRecentMatchlist() {
+<span class="nc" id="L252">        recentMatchlist.reset();</span>
+<span class="nc" id="L253">    }</span>
+
+    /**
+     * Gets a CompletableFuture of a list of the recent matches as MatchEntities. May return cached instances as
+     * described in {@link EntityApi#getMatch}.
+     * @return CompletableFuture of List of MatchEntities.
+     */
+    public CompletableFuture&lt;List&lt;MatchEntity&gt;&gt; getRecentMatchEntitiesAsync() {
+<span class="nc" id="L261">        return getRecentMatchlistAsync().thenApply(this::matchlistToMatches);</span>
+    }
+
+    /**
+     * Gets the recent matches as MatchEntities synchronously. May return cached instances as described in
+     * {@link EntityApi#getMatch}.
+     * @return List of MatchEntities.
+     */
+    public List&lt;MatchEntity&gt; getRecentMatchEntities() {
+<span class="fc" id="L270">        return matchlistToMatches(getRecentMatchlist());</span>
+    }
+    //endregion
+
+    //region matches query
+    /**
+     * Checks if the query is dirty. Returning true means that the match query parameters have been updated and a new
+     * request must be sent to obtain the matchlists. False means that a call to {@link #getMatchQuery} or
+     * {@link #getMatchQueryEntities} will return immediately.
+     * @return Whether the query is dirty.
+     */
+    public boolean isMatchQueryDirty() {
+<span class="fc" id="L282">        return queryDirty;</span>
+    }
+
+    /**
+     * Removes all query restrictions and marks the match query dirty.
+     */
+    public void resetMatchQuery() {
+<span class="nc" id="L289">        synchronized (queryLock) {</span>
+<span class="nc" id="L290">            queryQueues = null;</span>
+<span class="nc" id="L291">            queryBeginTime = null;</span>
+<span class="nc" id="L292">            queryEndTime = null;</span>
+<span class="nc" id="L293">            queryChampions = null;</span>
+<span class="nc" id="L294">            querySeasons = null;</span>
+<span class="nc" id="L295">            queryBeginIndex = null;</span>
+<span class="nc" id="L296">            queryEndIndex = null;</span>
+<span class="nc" id="L297">        }</span>
+<span class="nc" id="L298">    }</span>
+
+    /**
+     * Method for setting all query parameters at once.
+     * @param queues
+     * @param beginTime
+     * @param endTime
+     * @param champions
+     * @param seasons
+     * @param beginIndex
+     * @param endIndex
+     * @return Whether the query is dirty.
+     */
+    public boolean setMatchQueryAll(List&lt;Integer&gt; queues, Long beginTime, Long endTime, List&lt;Integer&gt; champions,
+        List&lt;Integer&gt; seasons, Integer beginIndex, Integer endIndex) {
+
+<span class="nc" id="L314">        synchronized (queryLock) {</span>
+<span class="nc" id="L315">            setMatchQueryQueues(queues);</span>
+<span class="nc" id="L316">            setMatchQueryTimeRange(beginTime, endTime);</span>
+<span class="nc" id="L317">            setMatchQueryChampions(champions);</span>
+<span class="nc" id="L318">            setMatchQuerySeasons(seasons);</span>
+<span class="nc" id="L319">            setMatchQueryIndexRange(beginIndex, endIndex);</span>
+<span class="nc" id="L320">            return queryDirty;</span>
+<span class="nc" id="L321">        }</span>
+    }
+
+    /**
+     * Sets the queues parameter for a match query.
+     * @param queues Queue id list, or null to remove.
+     * @return Whether the query is dirty.
+     */
+    public boolean setMatchQueryQueues(List&lt;Integer&gt; queues) {
+<span class="fc" id="L330">        synchronized (queryLock) {</span>
+<span class="pc bpc" id="L331" title="3 of 4 branches missed.">            if (queryDirty || !Objects.equals(queryQueues, queues)) {</span>
+<span class="fc" id="L332">                queryQueues = queues;</span>
+<span class="fc" id="L333">                queryDirty = true;</span>
+            }
+<span class="fc" id="L335">            return queryDirty;</span>
+<span class="nc" id="L336">        }</span>
+    }
+
+    /**
+     * Sets the begin and end time for a match query. Both bounds are inclusive.&lt;br&gt;
+     * {@code setMatchQueryTimeRange(null, null)} will remove the time restriction.
+     * @param beginTime Begin time in epoch milliseconds, or null to remove.
+     * @param endTime End time in epoch milliseconds, or null to remove.
+     * @return Whether the query is dirty.
+     * @throws IllegalArgumentException If beginTime is greater than endTime.
+     */
+    public boolean setMatchQueryTimeRange(Long beginTime, Long endTime) {
+<span class="pc bpc" id="L348" title="3 of 6 branches missed.">        if (beginTime != null &amp;&amp; endTime != null &amp;&amp; beginTime &gt; endTime) {</span>
+<span class="nc" id="L349">            throw new IllegalArgumentException(</span>
+                &quot;Begin time (&quot; + beginTime + &quot;) must be less than or equal to end time (&quot; + endTime + &quot;).&quot;);
+        }
+        //noinspection Duplicates
+<span class="fc" id="L353">        synchronized (queryLock) {</span>
+<span class="pc bpc" id="L354" title="1 of 4 branches missed.">            if (queryDirty || !Objects.equals(queryBeginTime, beginTime)) {</span>
+<span class="fc" id="L355">                queryBeginTime = beginTime;</span>
+<span class="fc" id="L356">                queryDirty = true;</span>
+            }
+<span class="pc bpc" id="L358" title="1 of 4 branches missed.">            if (queryDirty || !Objects.equals(queryEndTime, endTime)) {</span>
+<span class="fc" id="L359">                queryEndTime = endTime;</span>
+<span class="fc" id="L360">                queryDirty = true;</span>
+            }
+<span class="fc" id="L362">            return queryDirty;</span>
+<span class="nc" id="L363">        }</span>
+    }
+
+    /**
+     * Sets the champions for a match query.
+     * @param champions Champions that summoner played in queried matches, or null to remove.
+     * @return Whether the query is dirty.
+     */
+    public boolean setMatchQueryChampions(List&lt;Integer&gt; champions) {
+<span class="fc" id="L372">        synchronized (queryLock) {</span>
+<span class="pc bpc" id="L373" title="1 of 4 branches missed.">            if (queryDirty || !Objects.equals(queryChampions, champions)) {</span>
+<span class="fc" id="L374">                queryChampions = champions;</span>
+<span class="fc" id="L375">                queryDirty = true;</span>
+            }
+<span class="fc" id="L377">            return queryDirty;</span>
+<span class="nc" id="L378">        }</span>
+    }
+
+    /**
+     * Sets the seasons for a match query.
+     * @param seasons Seasons to return matches from.
+     * @return Whether the query is dirty.
+     */
+    public boolean setMatchQuerySeasons(List&lt;Integer&gt; seasons) {
+<span class="fc" id="L387">        synchronized (queryLock) {</span>
+<span class="pc bpc" id="L388" title="3 of 4 branches missed.">            if (queryDirty || !Objects.equals(querySeasons, seasons)) {</span>
+<span class="fc" id="L389">                querySeasons = seasons;</span>
+<span class="fc" id="L390">                queryDirty = true;</span>
+            }
+<span class="fc" id="L392">            return queryDirty;</span>
+<span class="nc" id="L393">        }</span>
+    }
+
+    /**
+     * Sets the begin and end indices for a match query. Range bounds are inclusive (probably).&lt;br&gt;
+     * {@code setMatchQueryIndexRange(null, null)} will remove the index restriction.
+     * @param beginIndex Begin index, or null to remove.
+     * @param endIndex End index, or null to remove.
+     * @return Whether the query is dirty.
+     * @throws IllegalArgumentException If beginIndex is greater than endIndex.
+     */
+    public boolean setMatchQueryIndexRange(Integer beginIndex, Integer endIndex) {
+<span class="nc bnc" id="L405" title="All 6 branches missed.">        if (beginIndex != null &amp;&amp; endIndex != null &amp;&amp; beginIndex &gt; endIndex) {</span>
+<span class="nc" id="L406">            throw new IllegalArgumentException(</span>
+                &quot;Begin index (&quot; + beginIndex + &quot;) must be less than or equal to end index (&quot; + endIndex + &quot;).&quot;);
+        }
+        //noinspection Duplicates
+<span class="nc" id="L410">        synchronized (queryLock) {</span>
+<span class="nc bnc" id="L411" title="All 4 branches missed.">            if (queryDirty || !Objects.equals(queryBeginIndex, beginIndex)) {</span>
+<span class="nc" id="L412">                queryBeginIndex = beginIndex;</span>
+<span class="nc" id="L413">                queryDirty = true;</span>
+            }
+<span class="nc bnc" id="L415" title="All 4 branches missed.">            if (queryDirty || !Objects.equals(queryEndIndex, endIndex)) {</span>
+<span class="nc" id="L416">                queryEndIndex = endIndex;</span>
+<span class="nc" id="L417">                queryDirty = true;</span>
+            }
+<span class="nc" id="L419">            return queryDirty;</span>
+<span class="nc" id="L420">        }</span>
+    }
+
+    /**
+     * @return Whether the match query is not dirty and has been loaded.
+     */
+    public boolean loadedMatchQuery() {
+<span class="pc bpc" id="L427" title="1 of 4 branches missed.">        return !queryDirty &amp;&amp; queryMatchlist.isDone();</span>
+    }
+
+    /**
+     * Queries matches with the parameters set by {@code setMatchQuery***} methods. Only sends a new request if the
+     * query is marked dirty (parameters have been updated).
+     * @return A CompletableFuture of the Matchlist.
+     */
+    public CompletableFuture&lt;Matchlist&gt; getMatchQueryAsync() {
+<span class="fc" id="L436">        synchronized (queryLock) {</span>
+<span class="fc bfc" id="L437" title="All 2 branches covered.">            if (queryDirty)</span>
+<span class="fc" id="L438">                queryMatchlist.reset();</span>
+<span class="fc" id="L439">            queryDirty = false;</span>
+<span class="fc" id="L440">            return queryMatchlist.get();</span>
+<span class="nc" id="L441">        }</span>
+    }
+    /**
+     * Queries matches with the parameters set by {@code setMatchQuery***} methods. Only sends a new request if the
+     * query is marked dirty (parameters have been updated).
+     * @return The Matchlist.
+     */
+    public Matchlist getMatchQuery() {
+<span class="fc" id="L449">        return getMatchQueryAsync().join();</span>
+    }
+
+    /**
+     * Queries matches with the parameters set by {@code setMatchQuery***} methods. Only sends a new request if the
+     * query is marked dirty (parameters have been updated).&lt;br&gt;&lt;br&gt;
+     *
+     * May returned cached instances as described in {@link EntityApi#getMatch}.
+     *
+     * @return A CompletableFuture of the List of MatchEntities.
+     */
+    public CompletableFuture&lt;List&lt;MatchEntity&gt;&gt; getMatchQueryEntitiesAsync() {
+<span class="nc" id="L461">        return getMatchQueryAsync().thenApply(this::matchlistToMatches);</span>
+    }
+    /**
+     * Queries matches with the parameters set by {@code setMatchQuery***} methods. Only sends a new request if the
+     * query is marked dirty (parameters have been updated).&lt;br&gt;&lt;br&gt;
+     *
+     * May returned cached instances as described in {@link EntityApi#getMatch}.
+     *
+     * @return The List of MatchEntities.
+     */
+    public List&lt;MatchEntity&gt; getMatchQueryEntities() {
+<span class="fc" id="L472">        return matchlistToMatches(getMatchQuery());</span>
+    }
+    //endregion
+
+    private List&lt;MatchEntity&gt; matchlistToMatches(Matchlist ml) {
+<span class="fc" id="L477">        return new ArrayList&lt;&gt;(Lists.transform(ml.matches,</span>
+<span class="fc" id="L478">            m -&gt; entityApi.getMatch(region, m.gameId, accountId.join())));</span>
+    }
+
+    //region equals hashCode
+
+    /**
+     * Checks that this SummonerEntity is from the same region and has the same summoner ID as OTHER. Will load the
+     * summoner IDs if needed.
+     * @param other Object to compare to.
+     * @return True if equal.
+     */
+    @Override
+    public boolean equals(Object other) {
+<span class="nc bnc" id="L491" title="All 2 branches missed.">        if (this == other) return true;</span>
+<span class="nc bnc" id="L492" title="All 4 branches missed.">        if (other == null || getClass() != other.getClass()) return false;</span>
+
+<span class="nc" id="L494">        SummonerEntity entity = (SummonerEntity) other;</span>
+
+<span class="nc bnc" id="L496" title="All 2 branches missed.">        if (getSummonerId() != entity.getSummonerId()) return false;</span>
+<span class="nc bnc" id="L497" title="All 2 branches missed.">        return getRegion() == entity.getRegion();</span>
+    }
+
+    /**
+     * Returns a hashed-sized version of this SummonerEntitiy's summoner ID with the summoner region. Will load the
+     * summoner ID if needed.
+     * @return Summoner ID hash.
+     */
+    @Override
+    public int hashCode() {
+<span class="nc" id="L507">        int result = (int) (getSummonerId() ^ (getSummonerId() &gt;&gt;&gt; 32));</span>
+<span class="nc" id="L508">        result = 31 * result + region.hashCode();</span>
+<span class="nc" id="L509">        return result;</span>
+    }
+
+    //endregion
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
